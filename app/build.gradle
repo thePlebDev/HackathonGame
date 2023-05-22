@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.elliottsoftware.hackathongame"
@@ -42,7 +42,9 @@ android {
     }
     buildFeatures {
         viewBinding true
+        prefab true
     }
+    namespace 'com.elliottsoftware.hackathongame'
 }
 
 dependencies {
@@ -54,4 +56,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //GAMES .....
+    implementation "androidx.games:games-activity:2.0.1"
+
+
 }

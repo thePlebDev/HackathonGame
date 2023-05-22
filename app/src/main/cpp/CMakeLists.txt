@@ -9,6 +9,13 @@ cmake_minimum_required(VERSION 3.18.1)
 
 project("hackathongame")
 
+# Integrate GameActivity, refer to
+#     https://d.android.com/games/agdk/integrate-game-activity
+# for the detailed instructions.
+find_package(game-activity REQUIRED CONFIG)
+
+
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -36,6 +43,14 @@ find_library( # Sets the name of the path variable.
         # you want CMake to locate.
         log)
 
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        game-activity::game-activity
+        log
+        android
+        EGL
+        GLESv2
+        )
+
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
@@ -46,3 +61,4 @@ target_link_libraries( # Specifies the target library.
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
+
